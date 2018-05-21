@@ -1,6 +1,6 @@
 # one-button-spotify
 
-One-Button-Spotify is a simple Python script which uses [Spotipy][https://github.com/plamere/spotipy/] to access the Spotify Web API and provide basic control of a Spotify Connect Enabled device (eg a Pi running [Raspotify][https://github.com/dtcooper/raspotify]) with a single button. 
+One-Button-Spotify is a simple Python script which uses [Spotipy](https://github.com/plamere/spotipy/) to access the Spotify Web API and provide basic control of a Spotify Connect Enabled device (eg a Pi running [Raspotify](https://github.com/dtcooper/raspotify) with a single button. 
 
 # Nota Bene
 
@@ -18,7 +18,7 @@ NB: read the flipping big NB above! This may not work as smoothly as the docs su
 * A Spotify Premium account
 
 #### Steps:
-1. Sign up to [Spotify for Developers][https://beta.developer.spotify.com/] if you haven't already, and create a new app/client id. Note down the Client ID and Client Secret. Set the redirect URL to `http://localhost/` (or, optionally, something of your choosing)
+1. Sign up to [Spotify for Developers](https://beta.developer.spotify.com/) if you haven't already, and create a new app/client id. Note down the Client ID and Client Secret. Set the redirect URL to `http://localhost/` (or, optionally, something of your choosing)
 2. Note down the Spotify Connect Device Name for your playback device (eg 'My Echo Dot').
 3. In an official Spotify client, create or choose a playlist to use, then find the Share button, and note down the URI.
 4. Install Raspbian (or the OS of your choice) on your Pi. NB: you will need a GUI with Web Browser to authorise the script to control your Spotify account, so don't use a 'Lite' version. I can't find a way around this (I've seen scripts that authorise via CLI in the past, but I can't figure out how they did it or if it's still possible).
@@ -44,9 +44,9 @@ NB: read the flipping big NB above! This may not work as smoothly as the docs su
 
 I have a 3 year old daughter. Toddlers are old enough to have their own taste in music, but not yet old enough to use a GUI (mainly because they can't usually read very well, but also due to hand-eye-coordination issues) or necessarily to remember a complex hardware interface. So I wanted to build a way for her to play her own favourite songs from Spotify in her bedroom, in as simple an interface as possible. I could've simply mapped a button to play/skip on a Raspberry Pi, but that would've meant having the speaker within reach, and I know *I* used to enjoy poking speaker cones when I was younger, so...
 
-So the system uses two Raspberry Pis, although one of them could easily be replaced by any Spotify Connect enabled device (eg an Amazon Echo, a Sonos, or a phone or laptop running Spotify). One Pi is a ZeroW hooked up to a speaker via a [Pimoroni PhatDAC][https://shop.pimoroni.com/products/phat-dac], and running [Raspotify][https://github.com/dtcooper/raspotify], configured to login to my daughter's account (we have the Spotify Premium Family plan, so she's just a passenger account on that). I won't explain how to do that here, as the Docs for both the PhatDAC and Raspotify are both comprehensive and readable for novices.
+So the system uses two Raspberry Pis, although one of them could easily be replaced by any Spotify Connect enabled device (eg an Amazon Echo, a Sonos, or a phone or laptop running Spotify). One Pi is a ZeroW hooked up to a speaker via a [Pimoroni PhatDAC](https://shop.pimoroni.com/products/phat-dac), and running [Raspotify](https://github.com/dtcooper/raspotify), configured to login to my daughter's account (we have the Spotify Premium Family plan, so she's just a passenger account on that). I won't explain how to do that here, as the Docs for both the PhatDAC and Raspotify are both comprehensive and readable for novices.
 
-The second Pi is a Pi3, which doubles as our BabyCam (even though she's not a baby anymore). It has a Pimoroni (love those guys) [Pan Tilt Hat][https://shop.pimoroni.com/products/pan-tilt-hat] controlling a NoIR camera. It also (through some grubby physical hacking) has a button attached to BCM pin 23. This one runs the one-button-spotify.py script as a background process when it boots. 
+The second Pi is a Pi3, which doubles as our BabyCam (even though she's not a baby anymore). It has a Pimoroni (love those guys) [Pan Tilt Hat](https://shop.pimoroni.com/products/pan-tilt-hat) controlling a NoIR camera. It also (through some grubby physical hacking) has a button attached to BCM pin 23. This one runs the one-button-spotify.py script as a background process when it boots. 
 
 So the Pi-with-a-button runs one-button-spotify.py. When you short-press the button, it either starts playback (if paused/stopped) on the Spotify Connect output, or else skips to a random track within a specified playlist. When you long-press (>1 second) the button, it pauses/stops playback (or does nothing if it's not currently playing).
 
