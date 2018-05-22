@@ -16,27 +16,29 @@ This project is currently under development. It's tested and working, but might 
 * A Spotify Premium account
 
 #### Steps:
-1. Sign up to [Spotify for Developers](https://beta.developer.spotify.com/) if you haven't already, and create a new app/client id. Note down the Client ID and Client Secret. Set the redirect URL to `http://localhost/` (or, optionally, something of your choosing)
-2. Note down the Spotify Connect Device Name for your playback device (eg 'My Echo Dot').
+1. Sign up to [Spotify for Developers](https://beta.developer.spotify.com/) if you haven't already, and create a new app/client id. Note down the `Client ID` and `Client Secret`. Set the redirect URL to `http://localhost/` (or, optionally, something of your choosing)
+2. Note down the Spotify Connect Device Name for your playback device (eg 'My Echo Dot')<sup>*</sup>.
 3. In an official Spotify client, create or choose a playlist to use, then find the Share button, and note down the URI.
 4. Install Raspbian (or the OS of your choice) on your Pi. NB: you will need a GUI with Web Browser to authorise the script to control your Spotify account, so don't use a 'Lite' version. I can't find a way around this (I've seen scripts that authorise via CLI in the past, but I can't figure out how they did it or if it's still possible).
 5. `sudo apt install python-gpiozero`
 6. `pip install git+https://github.com/plamere/spotipy.git`
-7. grab the one-button-spotify.py script
-8. edit the one-button-spotify.py script with the editor of your choice:
-    a. replace xxxYourUserNamexxx with your actual username
-    b. replace xxxYourPasswordxxx with your actual password
-    c. replace xxYourPlayListURIfromSpotifyxxx with your playlist URI from step 3
-    d. replace xxxYourTargetSpotifyConnectDeviceNamexxx with your Spotify Connect Device Name from step 2
-    e. replace xxxClientIDofYourAppxxx with the Client ID from step 1
-    f. replace xxxClientSecretofYourAppxxx with the Client Secret from step 1
-    g. if necessary, replace `http://localhost/` with the redirect URL you created in step 1
-    h. if necessary, replace `pin=23` with a different BCM pin number
-9. connect your button to BCM pin 23 (or whatever you changed it to in the script)
+7. Grab the `one-button-spotify.py` script
+8. Edit the `one-button-spotify.py` script with the editor of your choice:
+    a. Replace `xxxYourUserNamexxx` with your actual username
+    b. Replace `xxxYourPasswordxxx` with your actual password
+    c. Replace `xxYourPlayListURIfromSpotifyxxx` with your playlist URI from step 3
+    d. Replace `xxxYourTargetSpotifyConnectDeviceNamexxx` with your Spotify Connect Device Name from step 2
+    e. Replace `xxxClientIDofYourAppxxx` with the Client ID from step 1
+    f. Replace `xxxClientSecretofYourAppxxx` with the Client Secret from step 1
+    g. If necessary, replace `http://localhost/` with the redirect URL you created in step 1
+    h. If necessary, replace `pin=10` with a different BCM pin number
+9. Connect your button to BCM pin 10 (or whatever you changed it to in the script) and ground
 10. `python one-button-spotify.py`
-11. the script *should* open your browser at the redirect URL - simply copy the full URL and paste it back into the terminal as instructed - if your browser didn't open automatically, copy the URL shown in the terminal and paste it into your browser, then copy the redirect URL and paste it into the terminal
-12. it *should* now be running - (short)press the button to start playback, press it again to skip to a random track. Long press will stop playback.
-13. make the script run as a daemon
+11. The script *should* open your browser at the redirect URL - simply copy the full URL and paste it back into the terminal as instructed - if your browser didn't open automatically, copy the URL shown in the terminal and paste it into your browser, then copy the redirect URL and paste it into the terminal
+12. It *should* now be running - (short)press the button to start playback, press it again to skip to a random track. Long press will stop playback.
+13. Stop the script (`Ctrl+C`) and (if required) make it run as a daemon.
+
+<sup>*</sup>If you're using (as I am) Raspotify for your playback device, you'll also have to configure Raspotify to log in to the same account you're using for my button script - as far as I can tell, the Spotify Connect API doesn't return Spotify Connect devices on the same LAN as you, they're only detected by official clients.
 
 ## Use Case (aka: why did you do this?)
 
