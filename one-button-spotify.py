@@ -5,7 +5,7 @@ import spotipy.util as util
 import time
 import json
 
-button = Button(pin=23) # Change this to the BCM pin number required, as needed
+button = Button(pin=10) # Change this to the BCM pin number required, as needed
 
 username = 'xxxYourUserNamexxx'
 password = 'xxxYourPasswordxxx'
@@ -40,7 +40,7 @@ def spotDevices():
         dictionary = {}
         for item in devices:
             dictionary[item['name']] = item['id']
-        print dictionary
+        #print dictionary
         device = dictionary[spotconnect_device_name]
     else:
         #print "Can't get token for", username
@@ -49,7 +49,7 @@ def spotDevices():
 def spotPlay():
     global token
     global playing
-    print "Play"
+    #print "Play"
     if token:
         if playing == True:
             # if we're already playing, skip to a new track
@@ -69,7 +69,7 @@ def spotPlay():
 def spotStop():
     global token
     global playing
-    print "Stop"
+    #print "Stop"
     if token:
         if playing == False:
             # if playback is already paused/stopped, do nothing
@@ -87,14 +87,15 @@ while True:
     if not token:
         spotStart()
         spotDevices()
-    if button.is_pressed():
-        if button.is_held():
+    if button.is_pressed:
+        time.sleep(1.5)
+        if button.is_held:
             # long press script
             spotStop()
-            time.sleep(0.5)
+            time.sleep(3)
         else:
             # short press script
             spotPlay()
-            time.sleep(0.5)
+            time.sleep(1)
     else:
-        time.sleep(0.5)
+        pass
