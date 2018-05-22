@@ -4,12 +4,10 @@ One-Button-Spotify is a simple Python script which uses [Spotipy](https://github
 
 # Nota Bene
 
-This project is currently under development. test.py works as expected, so one-button-spotify.py should work ok too unless I've made a typo somewhere, but I haven't actually tested it at the time of writing this (my daughter is asleep, so I'm stealing a march on the documentation). If you happen to be reading this, don't be too surprised if you try it and it doesn't work as expected. I'll update in a day or two once any kinks have been ironed out.
+This project is currently under development. It's tested and working, but might throw an error or two if things go wrong that I haven't yet encountered in my own tests. Oh, and there are probably/definitely some inefficiencies in my code - feel free to fork and push improvements or get in touch. Also see my noted quirks section at the bottom of this Readme.
 
 ## Quick Explanation
 ### (for people who know their way around)
-
-NB: read the flipping big NB above! This may not work as smoothly as the docs suggest.
 
 #### You need: 
 * A Spotify Connect enabled device for playback (eg Amazon Echo Dot)
@@ -53,3 +51,11 @@ So the Pi-with-a-button runs one-button-spotify.py. When you short-press the but
 ## How To
 
 A detailed explanation for people new to Raspberry Pis, Raspbian, Python, the Spotify API, Spotipy etc etc is on its way. Be patient.
+
+# Noted Quirks
+
+I'm no expert coder, just a tinkerer who likes to play around with things. With that in mind, there are some parts of my code that probably don't operate the way they *should* (ie - the way a more experienced Python coder would do them). I'm listing them here in case you, dear reader, want to take a look and tell me how to do it right.
+
+[] The spotDevices function calls Spotipy's devices function, then does an overcomplicated bit of jiggery-pokery to get the ID associated with the device name stored in spot_connect_device_name. I'm aware that Spotipy's devices function returns a dictionary, but I couldn't find a clean way of getting 'id' for a given 'name', so I ended up using a for loop to create a second dictionary that only stores pairs of those values. I'd really appreciate someone explaining if there's a better way around this.
+[] In the spotStop function, I should probably rewrite the conditional to `if not playing:` to remove the need for `pass` and `else:`. I might do this at some point.
+[] Similarly, in the main `while True:` loop, I suspect there's a better way to switch between short and long presses than simply sleeping for 1.5 seconds before checking `is_held`, but this is my first draft of my first project using the gpiozero library, so forgive me or tell me how to do it better!
