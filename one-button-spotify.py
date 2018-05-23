@@ -5,7 +5,7 @@ import spotipy.util as util
 import time
 import json
 
-button = Button(pin=10) # Change this to the BCM pin number required, as needed
+button = Button(pin=10) # Change '10' to the BCM pin number required, as needed
 
 username = 'xxxYourUserNamexxx'
 password = 'xxxYourPasswordxxx'
@@ -31,7 +31,7 @@ def spotStart():
 
 def spotDevices():
     global token
-    print "Get Devices"
+    #print "Get Devices"
     if token:
         global device
         sp = spotipy.Spotify(auth=token)
@@ -51,10 +51,11 @@ def spotPlay():
     global playing
     #print "Play"
     if token:
-        if playing == True:
+        if playing:
             # if we're already playing, skip to a new track
             sp = spotipy.Spotify(auth=token)
             sp.next_track()
+            time.sleep(1)
         else:
             # if we're not playing, play the playlist, turn on shuffle and skip to a new (random) track
             sp = spotipy.Spotify(auth=token)
@@ -62,6 +63,7 @@ def spotPlay():
             sp.shuffle(True)
             sp.next_track()
             playing = True
+            time.sleep(1)
     else:
         #print "Can't get token for", username
         token = ''
@@ -71,14 +73,15 @@ def spotStop():
     global playing
     #print "Stop"
     if token:
-        if playing == False:
-            # if playback is already paused/stopped, do nothing
-            pass
-        else:
+        if playing:
             # stop(pause) playing
             sp = spotipy.client.Spotify(auth=token)
             sp.pause_playback()
             playing = False
+            time.sleep(1)
+        else:
+            # if not playing, do nothing
+            pass
     else:
         #print "Can't get token for", username
         token = ''
@@ -87,15 +90,5 @@ while True:
     if not token:
         spotStart()
         spotDevices()
-    if button.is_pressed:
-        time.sleep(1.5)
-        if button.is_held:
-            # long press script
-            spotStop()
-            time.sleep(3)
-        else:
-            # short press script
-            spotPlay()
-            time.sleep(1)
-    else:
-        pass
+    button.when_pressed = spotPlay
+    button.when_held = spotStop
