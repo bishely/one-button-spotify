@@ -24,14 +24,14 @@ This project is currently under development. It's tested and working, but might 
 6. `pip install git+https://github.com/plamere/spotipy.git`
 7. Grab the `one-button-spotify.py` script
 8. Edit the `one-button-spotify.py` script with the editor of your choice:
-  a. Replace `xxxYourUserNamexxx` with your actual username
-  b. Replace `xxxYourPasswordxxx` with your actual password
-  c. Replace `xxYourPlayListURIfromSpotifyxxx` with your playlist URI from step 3
-  d. Replace `xxxYourTargetSpotifyConnectDeviceNamexxx` with your Spotify Connect Device Name from step 2
-  e. Replace `xxxClientIDofYourAppxxx` with the Client ID from step 1
-  f. Replace `xxxClientSecretofYourAppxxx` with the Client Secret from step 1
-  g. If necessary, replace `http://localhost/` with the redirect URL you created in step 1
-  h. If necessary, replace `pin=10` with a different BCM pin number
+  1. Replace `xxxYourUserNamexxx` with your actual username
+  2. Replace `xxxYourPasswordxxx` with your actual password
+  3. Replace `xxYourPlayListURIfromSpotifyxxx` with your playlist URI from step 3
+  4. Replace `xxxYourTargetSpotifyConnectDeviceNamexxx` with your Spotify Connect Device Name from step 2
+  5. Replace `xxxClientIDofYourAppxxx` with the Client ID from step 1
+  6. Replace `xxxClientSecretofYourAppxxx` with the Client Secret from step 1
+  7. If necessary, replace `http://localhost/` with the redirect URL you created in step 1
+  8. If necessary, replace `pin=10` with a different BCM pin number
 9. Connect your button to BCM pin 10 (or whatever you changed it to in the script) and ground
 10. `python one-button-spotify.py`
 11. The script *should* open your browser at the redirect URL - simply copy the full URL and paste it back into the terminal as instructed - if your browser didn't open automatically, copy the URL shown in the terminal and paste it into your browser, then copy the redirect URL and paste it into the terminal
@@ -108,14 +108,14 @@ You will need:
 22. `cd one-button-spotify`
 23. `nano one-button-spotify`
 24. Make the following changes to the script:
-  a. Replace `xxxYourUserNamexxx` with your actual username
-  b. Replace `xxxYourPasswordxxx` with your actual password
-  c. Replace `xxYourPlayListURIfromSpotifyxxx` with your playlist URI from step 3
-  d. Replace `xxxYourTargetSpotifyConnectDeviceNamexxx` with your Spotify Connect Device Name from step 2
-  e. Replace `xxxClientIDofYourAppxxx` with the Client ID from step 1
-  f. Replace `xxxClientSecretofYourAppxxx` with the Client Secret from step 1
-  g. If necessary, replace `http://localhost/` with the redirect URL you created in step 1
-  h. If necessary, replace `pin=10` with a different BCM pin number
+  1. Replace `xxxYourUserNamexxx` with your actual username
+  2. Replace `xxxYourPasswordxxx` with your actual password
+  3. Replace `xxYourPlayListURIfromSpotifyxxx` with your playlist URI from step 3
+  4. Replace `xxxYourTargetSpotifyConnectDeviceNamexxx` with your Spotify Connect Device Name from step 2
+  5. Replace `xxxClientIDofYourAppxxx` with the Client ID from step 1
+  6. Replace `xxxClientSecretofYourAppxxx` with the Client Secret from step 1
+  7. If necessary, replace `http://localhost/` with the redirect URL you created in step 1
+  8. If necessary, replace `pin=10` with a different BCM pin number
 25. Finally, reboot with `sudo reboot now`
 26. When the Pi has rebooted, use your VNC Viewer to remote access the desktop
 27. Open a terminal window and run `python ~/one-button-spotify/one-button-spotify.py`
