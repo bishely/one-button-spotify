@@ -5,7 +5,7 @@ import spotipy.util as util
 import time
 import json
 
-button = Button(pin=10) # Change '10' to the BCM pin number required, as needed
+button = Button(pin=10,hold_time=0.75) # Change '10' to the BCM pin number required, as needed
 
 username = 'xxxYourUserNamexxx'
 password = 'xxxYourPasswordxxx'
