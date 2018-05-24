@@ -86,20 +86,20 @@ You will need:
 1. Also add a blank file with the name `ssh` to the boot partition. The easiest way to do this (on Linux/Unix/Mac) is the terminal command `sudo touch /path/to/boot/partition/ssh`
 1. On your 'main' computer, visit [Spotify for Developers](https://developer.spotify.com)
 1. Log in, and if you've never used the site before, accept the terms and conditions
-1. Once your account is up and running, go to the Dashboard and click ‘Create a Client ID’. 
+1. Once your account is up and running, go to the `Dashboard` and click `Create a Client ID`. 
 1. Give your new app a name (eg One Button Spotify) and a short description. 
-1.Select relevant boxes for ‘what are you building’ – I think I chose Desktop App and Speakers. Click Next.
-1. Click ‘No’, you are not developing a commercial integration.
-1. Tick the three boxes to agree with the terms and click Submit.
-1. You’ll now see your dashboard for your new app. Click Edit Settings.
-1. In the text field under ‘Redirect URIs’, enter http://localhost/ then click Add and then **IMPORTANT!** scroll down to the bottom and click Save. You can change the redirect URI to something else if you prefer, but make sure it’s an address that won’t do anything weird (ie – one you control). 
-1. Now click Show Client Secret, and note down both your Client ID and Client Secret for use in the script.
+1. Select relevant boxes for ‘what are you building’ – I think I chose Desktop App and Speakers. Click `Next`.
+1. Click `No`: you are not developing a commercial integration.
+1. Tick the three boxes to agree with the terms and click `Submit`.
+1. You’ll now see your dashboard for your new app. Click `Edit Settings`.
+1. In the text field under ‘Redirect URIs’, enter `http://localhost/` then click `Add` and then **IMPORTANT!** scroll down to the bottom and click `Save`. You can change the redirect URI to something else if you prefer, but make sure it’s an address that won’t do anything weird (ie – one you control). 
+1. Now click `Show Client Secret`, and note down both your `Client ID` and `Client Secret` for use in the script.
 1. Insert your SD card into your Pi and apply power, wait a minute for it to fully boot
 1. SSH into your Pi (either with [PuTTY](https://putty.org/) or from a command line on your computer - I'll assume command line): `ssh pi@raspberrypi.local` using the password `raspberry`
 1. Once connected to your Pi, run `sudo raspi-config` and make the following changes:
-  1. Change User Password to something of your choosing
-  1. In Network Options, change the Hostname to something of your choosing
-  1. In Interfacing Options, enable VNC
+  1. Change `User Password` to something of your choosing
+  1. In `Network Options`, change the `Hostname` to something of your choosing
+  1. In `Interfacing Options`, `Enable VNC`
   1. When finished, don't reboot yet
 1. Run `sudo apt-get update` and `sudo apt-get upgrade`, don't reboot yet
 1. Run `sudo apt install python-gpiozero`
