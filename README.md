@@ -123,7 +123,7 @@ You will need:
 1. The script should now be running.
 1. Press the button once to start playback, press it again to skip to a new track, and press-and-hold to stop/pause playback.
 1. To make the script run in the background even after you disconnect, you can use the command `nohup python ~/one-button-spotify/one-button-spotify.py &`. You can do this from SSH without needing to reauthenticate in a browser.
-1. If it doesn't work, make the changes from step 28 to test.py and run it with `python test.py` - it should start playing, wait 5 seconds then stop, wait 5 seconds and repeat. If this works as expected, you've probably got a problem with your button soldering. If it doesn't, you've done something wrong when editing the scripts or registering yourself with Spotify for Developers. Go back over the steps slowly, or get in touch!
+1. If it doesn't work, make the changes from step 28 to `test.py` and run it with `python test.py` - it should start playing for 5 seconds then stop, wait 5 seconds and start again. If this works as expected, you've probably got a problem with your button soldering. If it doesn't, you've done something wrong when editing the scripts or registering yourself with Spotify for Developers. Go back over the steps slowly, or get in touch!
 1. Steps to run the script automatically on boot are coming: the usual method of running it at boot as a systemd service doesn't currently work for me, as it seems to require authenticating in a browser again.
 
 
