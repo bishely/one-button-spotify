@@ -4,7 +4,7 @@ One-Button-Spotify is a simple Python(2) script which uses [Spotipy](https://git
 
 # Nota Bene
 
-This project is currently under development. It's tested and working, but might throw an error or two if things go wrong that I haven't yet encountered in my own tests. Oh, and there are probably/definitely some inefficiencies in my code - feel free to fork and push improvements or get in touch. Also see my noted quirks section at the bottom of this Readme.
+This project is potentially unreliable, as I'm not much of a coder. It's tested and working, but might throw an error or two if things go wrong that I haven't yet encountered in my own tests. Oh, and there are probably/definitely some inefficiencies in my code - feel free to fork and push improvements or get in touch. Also see my noted quirks section at the bottom of this Readme.
 
 ## Quick Explanation
 ### (for people who know their way around)
@@ -130,4 +130,4 @@ You will need:
 
 I'm no expert coder, just a tinkerer who likes to play around with things. With that in mind, there are some parts of my code that probably don't operate the way they *should* (ie - the way a more experienced Python coder would do them). I'm listing them here in case you, dear reader, want to take a look and tell me how to do it right.
 
-- [ ] The `spotDevices` function calls Spotipy's `devices` function, then does an overcomplicated bit of jiggery-pokery to get the ID associated with the device name stored in `spot_connect_device_name`. I'm aware that Spotipy's `devices` function already returns a dictionary with all the details I could possibly need, but I couldn't find a clean way of getting `id` for a given `name`, so I ended up using a for loop to create a second dictionary that only stores pairs of those values. I'd really appreciate someone explaining if there's a better way around this.
+- [ ] The `spotDevices` function calls Spotipy's `devices` function, then does an overcomplicated bit of jiggery-pokery to get the ID associated with the device name stored in `spot_connect_device_name`. I'm aware that Spotipy's `devices` function already returns a dictionary with all the details I could possibly need, but I couldn't find a clean way of getting `id` for a given `name`, so I ended up using a for loop to create a second dictionary that only stores pairs of those values. I'd really appreciate someone explaining if (as I assume) there is a better way to do this.
