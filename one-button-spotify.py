@@ -48,6 +48,7 @@ def spotDevices():
         # empty token
         print 'something is not right - emptying token'
         token = ''
+		spotStart()
 
 def spotPlay():
     print 'spotPlay called'
